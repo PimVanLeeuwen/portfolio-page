@@ -648,6 +648,20 @@ img {
 }
 
 /* ========================================
+   Live Projects subsection
+   ======================================== */
+.live-projects-section {
+    margin-bottom: 4rem;
+}
+
+.subsection-title {
+    font-size: 1.4rem;
+    color: var(--color-slate-lightest);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+/* ========================================
    GitHub Dashboard (in Projects section)
    ======================================== */
 .github-dashboard {
