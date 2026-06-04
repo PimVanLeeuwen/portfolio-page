@@ -87,7 +87,20 @@
             grid-column: 1 / -1;
             border-bottom: 2px solid var(--accent-bright);
             padding-bottom: 4mm;
-            margin-bottom: 6mm;
+            margin-bottom: 4.5mm;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8mm;
+        }
+        .cv-head-text { flex: 1; }
+        .cv-photo {
+            width: 25mm;
+            height: 25mm;
+            border-radius: 50%;
+            object-fit: cover;
+            flex: none;
+            border: 2px solid var(--accent-bright);
         }
         .cv-name {
             font-size: 27pt;
@@ -268,9 +281,12 @@
     <!-- ===================== PAGE 1 ===================== -->
     <section class="page">
         <header class="cv-header">
-            <div class="cv-name">Pim van Leeuwen</div>
-            <div class="cv-role">Software Engineer</div>
-            <div class="cv-tagline">Problem solver, always looking for a challenge.</div>
+            <div class="cv-head-text">
+                <div class="cv-name">Pim van Leeuwen</div>
+                <div class="cv-role">Software Engineer</div>
+                <div class="cv-tagline">Problem solver, always looking for a challenge.</div>
+            </div>
+            <img class="cv-photo" src="picture.jpg" alt="Pim van Leeuwen">
         </header>
 
         <div class="cv-contact">
