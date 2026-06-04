@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pim van Leeuwen — Curriculum Vitae</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --ink: #0a192f;
+            --text: #33414f;
+            --muted: #67768a;
+            --accent: #0d8f80;          /* readable teal for text/headings */
+            --accent-bright: #64ffda;   /* decorative bars/dots only */
+            --line: #e4e9f0;
+            --sidebar-bg: #f5f8fa;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--text);
+            background: #d8dee6;
+            font-size: 10pt;
+            line-height: 1.45;
+        }
+
+        /* ---------- Screen toolbar ---------- */
+        .toolbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 0.85rem 1rem;
+            background: var(--ink);
+            color: #fff;
+            font-size: 0.85rem;
+        }
+        .toolbar span { opacity: 0.8; }
+        .toolbar .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent-bright);
+            color: var(--ink);
+            border: none;
+            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .toolbar a { color: var(--accent-bright); text-decoration: none; }
+
+        /* ---------- Page (A4) ---------- */
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 1.5rem auto;
+            padding: 13mm 14mm;
+            background: #fff;
+            box-shadow: 0 8px 30px rgba(10, 25, 47, 0.18);
+            display: grid;
+            grid-template-columns: 1fr 64mm;
+            column-gap: 9mm;
+            align-content: start;
+        }
+
+        /* ---------- Header ---------- */
+        .cv-header {
+            grid-column: 1 / -1;
+            border-bottom: 2px solid var(--accent-bright);
+            padding-bottom: 4mm;
+            margin-bottom: 6mm;
+        }
+        .cv-name {
+            font-size: 27pt;
+            font-weight: 800;
+            color: var(--ink);
+            letter-spacing: -0.5px;
+            line-height: 1.05;
+        }
+        .cv-role {
+            font-family: var(--font-mono);
+            font-size: 11pt;
+            color: var(--accent);
+            font-weight: 500;
+            margin-top: 2mm;
+        }
+        .cv-tagline {
+            color: var(--muted);
+            font-size: 9.5pt;
+            margin-top: 1.5mm;
+        }
+        .cv-contact {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2mm 6mm;
+            margin-top: -2mm;
+            margin-bottom: 5mm;
+            font-size: 9pt;
+        }
+        .cv-contact a, .cv-contact span {
+            color: var(--text);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 1.8mm;
+        }
+        .cv-contact i { color: var(--accent); width: 12px; text-align: center; }
+
+        /* ---------- Columns ---------- */
+        .main-col { grid-column: 1; }
+        .side-col { grid-column: 2; }
+
+        /* ---------- Section headings ---------- */
+        .sec-title {
+            font-family: var(--font-mono);
+            font-size: 10.5pt;
+            font-weight: 600;
+            color: var(--ink);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 2.5mm;
+            margin: 5mm 0 2.5mm;
+        }
+        .main-col > .sec-title:first-child,
+        .side-col > .sec-title:first-child { margin-top: 0; }
+        .sec-title::before {
+            content: '';
+            width: 4mm;
+            height: 4mm;
+            background: var(--accent-bright);
+            border-radius: 2px;
+            flex: none;
+        }
+
+        /* ---------- Experience / entries ---------- */
+        .entry { margin-bottom: 2.8mm; break-inside: avoid; }
+        .entry-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 4mm;
+        }
+        .entry-title { font-weight: 700; color: var(--ink); font-size: 10pt; }
+        .entry-org { color: var(--accent); font-weight: 600; }
+        .entry-date {
+            font-family: var(--font-mono);
+            font-size: 8pt;
+            color: var(--muted);
+            white-space: nowrap;
+        }
+        .entry ul { list-style: none; margin-top: 1mm; }
+        .entry li {
+            position: relative;
+            padding-left: 4mm;
+            margin-bottom: 0.8mm;
+            font-size: 9pt;
+            color: var(--text);
+        }
+        .entry li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 1.6mm;
+            width: 1.5mm;
+            height: 1.5mm;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+        .entry li strong { color: var(--ink); }
+
+        .summary { font-size: 9.5pt; color: var(--text); }
+
+        /* ---------- Sidebar blocks ---------- */
+        .side-col { font-size: 9pt; }
+        .skill-group { margin-bottom: 3mm; }
+        .skill-group h4 {
+            font-size: 8.5pt;
+            color: var(--ink);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.5mm;
+        }
+        .chips { display: flex; flex-wrap: wrap; gap: 1.5mm; }
+        .chip {
+            font-family: var(--font-mono);
+            font-size: 7.5pt;
+            background: var(--sidebar-bg);
+            border: 1px solid var(--line);
+            color: var(--text);
+            border-radius: 4px;
+            padding: 0.8mm 2mm;
+        }
+
+        .side-entry { margin-bottom: 3mm; break-inside: avoid; }
+        .side-entry .t { font-weight: 700; color: var(--ink); font-size: 9pt; }
+        .side-entry .o { color: var(--accent); font-weight: 600; font-size: 8.5pt; }
+        .side-entry .d { font-family: var(--font-mono); font-size: 7.5pt; color: var(--muted); }
+        .side-entry p { font-size: 8.5pt; margin-top: 0.5mm; }
+        .side-entry a { color: var(--accent); text-decoration: none; }
+
+        .cert-list { list-style: none; }
+        .cert-list li {
+            position: relative;
+            padding-left: 4mm;
+            margin-bottom: 1.2mm;
+            font-size: 8.5pt;
+        }
+        .cert-list li::before {
+            content: '\f0a3';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 0.2mm;
+            color: var(--accent);
+            font-size: 7.5pt;
+        }
+        .cert-list .y { color: var(--muted); }
+
+        /* ---------- Print ---------- */
+        @page { size: A4; margin: 0; }
+        @media print {
+            body { background: #fff; }
+            .toolbar { display: none !important; }
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+                min-height: auto;
+                height: 296mm;
+                overflow: hidden;
+            }
+            .page:last-child { page-break-after: auto; }
+            a { color: var(--text) !important; }
+            .cv-contact a, .side-entry a { color: var(--accent) !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="toolbar no-print">
+        <span>This is the print-ready CV. Use your browser's print dialog and choose <strong>“Save as PDF”</strong> (A4, margins: Default/None).</span>
+        <button class="btn" onclick="window.print()"><i class="fas fa-file-pdf"></i> Print / Save as PDF</button>
+        <a href="index.html"><i class="fas fa-arrow-left"></i> Back to site</a>
+    </div>
+
+    <!-- ===================== PAGE 1 ===================== -->
+    <section class="page">
+        <header class="cv-header">
+            <div class="cv-name">Pim van Leeuwen</div>
+            <div class="cv-role">Software Engineer</div>
+            <div class="cv-tagline">Problem solver, always looking for a challenge.</div>
+        </header>
+
+        <div class="cv-contact">
+            <a href="mailto:mail@pvleeuwen.com"><i class="fas fa-envelope"></i> mail@pvleeuwen.com</a>
+            <a href="https://pvleeuwen.com"><i class="fas fa-globe"></i> pvleeuwen.com</a>
+            <a href="https://github.com/PimVanLeeuwen"><i class="fab fa-github"></i> github.com/PimVanLeeuwen</a>
+            <a href="https://linkedin.com/in/pim-van-leeuwen-28a64a148"><i class="fab fa-linkedin"></i> in/pim-van-leeuwen-28a64a148</a>
+            <span><i class="fas fa-location-dot"></i> Eindhoven, Netherlands</span>
+        </div>
+
+        <!-- MAIN -->
+        <div class="main-col">
+            <h2 class="sec-title">Profile</h2>
+            <p class="summary">
+                Software engineer focused on building reliable, scalable, and thoughtfully designed systems,
+                motivated by real-world problem solving and human impact. Cum Laude BSc and a MSc in Computer
+                Science, currently rotating through engineering teams in ING's Tech Class. Experience across
+                backend (most extensively), mobile, and full-stack development, and backed by extensive leadership and community experience.
+            </p>
+
+            <h2 class="sec-title">Experience</h2>
+
+            <div class="entry">
+                <div class="entry-head">
+                    <span class="entry-title">Software Engineer <span class="entry-org">· ING Nederland</span></span>
+                    <span class="entry-date">Sep 2025 – Present</span>
+                </div>
+                <ul>
+                    <li>Engineer in ING's Tech Class 2025–2026, rotating through multiple engineering teams during this year.</li>
+                    <li><strong>UpgradeHub:</strong> built Java Spring Boot services helping customers improve their home energy labels.</li>
+                    <li><strong>InsideBusiness Mobile:</strong> developed cross-platform mobile features with Flutter.</li>
+                    <li><strong>AI rotation:</strong> explored how AI can be used to improve developer efficiency and workflows.</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-head">
+                    <span class="entry-title">Departmental Support Officer <span class="entry-org">· TU Eindhoven (LIS)</span></span>
+                    <span class="entry-date">2025</span>
+                </div>
+                <ul>
+                    <li>Supported daily ICT operations of the Mathematics &amp; Computer Science service desk.</li>
+                    <li>Guided and coordinated student assistants; managed authorization and access rights for faculty.</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-head">
+                    <span class="entry-title">Business Case <span class="entry-org">· Eventix</span></span>
+                    <span class="entry-date">2024 – 2025</span>
+                </div>
+                <ul>
+                    <li>Completed a business case for study association GEWIS on a real-world ticketing platform.</li>
+                    <li>Worked with Vue 3, TypeScript, and modern web technologies in a professional dev environment.</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-head">
+                    <span class="entry-title">LIS Metaforum &amp; Flux Student Assistant <span class="entry-org">· EuFlex / TU Eindhoven</span></span>
+                    <span class="entry-date">2020 – 2024</span>
+                </div>
+                <ul>
+                    <li>Helpdesk support for faculty employees across Mathematics &amp; CS, Electrical Engineering, and Applied Physics.</li>
+                    <li>Identified improvement opportunities and contributed to service-quality enhancements.</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-head">
+                    <span class="entry-title">Teaching Assistant <span class="entry-org">· TU Eindhoven</span></span>
+                    <span class="entry-date">2019 – 2024</span>
+                </div>
+                <ul>
+                    <li>Tutored Algorithms &amp; Data Structures, Logic &amp; Set Theory, and Discrete Structures.</li>
+                    <li>Mentored first-year Computer Science students and provided academic support.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="side-col">
+            <h2 class="sec-title">Technical Skills</h2>
+            <div class="skill-group">
+                <h4>Languages</h4>
+                <div class="chips">
+                    <span class="chip">Java</span><span class="chip">Python</span><span class="chip">C++</span>
+                    <span class="chip">Rust</span><span class="chip">C / OpenCL</span><span class="chip">Dart</span>
+                    <span class="chip">TypeScript</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h4>Frameworks</h4>
+                <div class="chips">
+                    <span class="chip">Spring Boot</span><span class="chip">Flutter</span><span class="chip">React</span>
+                    <span class="chip">Vue.js</span><span class="chip">Laravel</span><span class="chip">Halide DSL</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h4>Tools &amp; Platforms</h4>
+                <div class="chips">
+                    <span class="chip">Git / GitHub</span><span class="chip">Docker</span><span class="chip">Linux</span>
+                    <span class="chip">Microsoft Admin</span><span class="chip">JetBrains</span><span class="chip">VS Code</span>
+                </div>
+            </div>
+
+            <h2 class="sec-title">Key Projects</h2>
+            <div class="side-entry">
+                <div class="t">The Harry List</div>
+                <div class="d">Java Spring Boot · React</div>
+                <p>Full-stack bar reservation system for Hubble Community Café, deployed for real-world use.
+                <a href="https://harry.hubble.cafe">harry.hubble.cafe</a></p>
+            </div>
+            <div class="side-entry">
+                <div class="t">Advent of Code Portfolio</div>
+                <div class="d">Python</div>
+                <p>A visual portfolio of all my Advent of Code solutions since 2019.
+                <a href="https://aoc.pvleeuwen.com">aoc.pvleeuwen.com</a></p>
+            </div>
+            <div class="side-entry">
+                <div class="t">FARLLID: Master's Thesis</div>
+                <div class="d">Python · LLMs · ANTLR</div>
+                <p>Framework for automatic, repository-wide, language-independent documentation generation using LLMs.
+                <a href="https://github.com/PimVanLeeuwen/llm_documentation_framework">llm_documentation_framework</a></p>
+            </div>
+
+            <h2 class="sec-title">Languages</h2>
+            <div class="chips">
+                <span class="chip">Dutch — Native</span><span class="chip">English — C1 (CAE)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===================== PAGE 2 ===================== -->
+    <section class="page">
+        <!-- MAIN -->
+        <div class="main-col">
+            <h2 class="sec-title">Education</h2>
+
+            <div class="entry">
+                <div class="entry-head">
+                    <span class="entry-title">MSc Computer Science &amp; Engineering <span class="entry-org">· TU Eindhoven</span></span>
+                    <span class="entry-date">2021 – 2025</span>
+                </div>
+                <ul>
+                    <li>Specialised in Software Technology, focusing on software engineering, language tooling, and applied machine learning.</li>
+                    <li>Thesis research: Creating FARLLID: Framework for Automatic, Repository-wide, LLM-Aided, Language-Independent Documentation generation.</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-head">
+                    <span class="entry-title">BSc Computer Science &amp; Engineering <span class="entry-org">· TU Eindhoven</span></span>
+                    <span class="entry-date">2018 – 2021</span>
+                </div>
+                <ul>
+                    <li>Graduated <strong>Cum Laude</strong> with a strong foundation in software engineering, algorithms, and data structures.</li>
+                    <li>Active in student associations and extracurricular activities throughout.</li>
+                </ul>
+            </div>
+
+            <h2 class="sec-title">Board &amp; Volunteering</h2>
+
+            <div class="entry">
+                <div class="entry-head">
+                    <span class="entry-title">Event First Responder <span class="entry-org">· Rode Kruis Nederland</span></span>
+                    <span class="entry-date">2025 – Present</span>
+                </div>
+                <ul><li>Training as an Event First Responder (Evenementenhulpverlener) to ensure safety at events.</li></ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-head">
+                    <span class="entry-title">Digital Infrastructure Support <span class="entry-org">· Hubble Community Café</span></span>
+                    <span class="entry-date">2025 – Present</span>
+                </div>
+                <ul><li>Maintain much of the café's application landscape and build new innovations such as the reservation manager.</li></ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-head">
+                    <span class="entry-title">Chief Technology Officer <span class="entry-org">· Hubble Community Café</span></span>
+                    <span class="entry-date">2024 – 2025</span>
+                </div>
+                <ul><li>Maintained services, screens, and AV setup; led tech for opening a second bar and oversaw app development.</li></ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-head">
+                    <span class="entry-title">Chairman <span class="entry-org">· E.S.T.C. Twist</span></span>
+                    <span class="entry-date">2022 – 2023</span>
+                </div>
+                <ul><li>Led the cheerleading and gymnastics association, taking primary responsibility for the entire organization.</li></ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-head">
+                    <span class="entry-title">Secretary <span class="entry-org">· ESSF (Sports Federation)</span></span>
+                    <span class="entry-date">2021 – 2022</span>
+                </div>
+                <ul><li>Coordinated 37 sports associations in Eindhoven; stakeholder management at scale.</li></ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-head">
+                    <span class="entry-title">Secretary <span class="entry-org">· E.S.E.V. Zephyr (Esports)</span></span>
+                    <span class="entry-date">2020 – 2021</span>
+                </div>
+                <ul><li>First board year; learned to run an organization and developed foundational organizational skills.</li></ul>
+            </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="side-col">
+            <h2 class="sec-title">Certifications</h2>
+            <ul class="cert-list">
+                <li>First Response (BHV) — EHBHV <span class="y">(2019 – Present)</span></li>
+                <li>Extensive EHBO (First Aid)</li>
+                <li>EHBO for Kids</li>
+                <li>Confidential Contact Person — NOC*NSF <span class="y">(2021)</span></li>
+                <li>CAE Cambridge English Certificate <span class="y">(2017)</span></li>
+                <li>Elementary Bookkeeping <span class="y">(2017)</span></li>
+            </ul>
+
+            <h2 class="sec-title">Strengths</h2>
+            <div class="chips">
+                <span class="chip">Problem Solving</span><span class="chip">Communication</span>
+                <span class="chip">Team Leadership</span><span class="chip">Organization</span>
+                <span class="chip">Mentoring</span><span class="chip">Eager to Learn</span>
+            </div>
+
+            <h2 class="sec-title">Interests</h2>
+            <p>Advent of Code, systems &amp; performance programming, community building, and first-aid volunteering.</p>
+        </div>
+    </section>
+
+    <script>
+        // Allow ?print=1 to open the print dialog automatically.
+        if (new URLSearchParams(location.search).get('print') === '1') {
+            window.addEventListener('load', () => setTimeout(() => window.print(), 400));
+        }
+    </script>
+</body>
+</html>
