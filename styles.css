@@ -212,7 +212,7 @@ img {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .nav-link {
@@ -1784,6 +1784,17 @@ img {
 /* ========================================
    Responsive Styles
    ======================================== */
+/* Collapse the full nav to the hamburger menu before the 8 links crowd */
+@media screen and (max-width: 1150px) {
+    .nav-links {
+        display: none;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+}
+
 @media screen and (max-width: 1080px) {
     .section {
         padding: 80px 100px;
@@ -1884,14 +1895,6 @@ img {
 
     .stats-section {
         padding: 60px 50px;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .nav-toggle {
-        display: block;
     }
 
     .social-sidebar {
