@@ -1476,13 +1476,9 @@ img {
     gap: 1.5rem;
 }
 
-/* Live projects: featured card spans two of three columns */
+/* Live projects: two columns, featured cards on the first row */
 .live-projects-grid {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.project-card-featured {
-    grid-column: span 2;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .project-card-badge {
@@ -1847,10 +1843,6 @@ img {
 
     .live-projects-grid {
         grid-template-columns: 1fr;
-    }
-
-    .project-card-featured {
-        grid-column: auto;
     }
 
     .featured-project {

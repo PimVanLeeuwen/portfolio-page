@@ -154,7 +154,7 @@
             display: flex;
             align-items: center;
             gap: 2.5mm;
-            margin: 5mm 0 2.5mm;
+            margin: 3.4mm 0 2.2mm;
         }
         .main-col > .sec-title:first-child,
         .side-col > .sec-title:first-child { margin-top: 0; }
@@ -168,7 +168,7 @@
         }
 
         /* ---------- Experience / entries ---------- */
-        .entry { margin-bottom: 2.8mm; break-inside: avoid; }
+        .entry { margin-bottom: 1.5mm; break-inside: avoid; }
         .entry-head {
             display: flex;
             justify-content: space-between;
@@ -187,7 +187,7 @@
         .entry li {
             position: relative;
             padding-left: 4mm;
-            margin-bottom: 0.8mm;
+            margin-bottom: 0.4mm;
             font-size: 9pt;
             color: var(--text);
         }
@@ -303,7 +303,7 @@
             <p class="summary">
                 Software engineer focused on building reliable, scalable, and thoughtfully designed systems,
                 motivated by real-world problem solving and human impact. Cum Laude BSc and an MSc in Computer
-                Science, currently rotating through engineering teams in ING's Tech Class. Primarily backend,
+                Science, engineer in ING's Mortgages domain after completing the 2025&ndash;2026 Tech Class. Primarily backend,
                 with mobile and full-stack experience, and backed by extensive leadership and community experience.
             </p>
 
@@ -311,14 +311,25 @@
 
             <div class="entry">
                 <div class="entry-head">
-                    <span class="entry-title">Software Engineer <span class="entry-org">· ING Nederland</span></span>
-                    <span class="entry-date">Sep 2025 – Present</span>
+                    <span class="entry-title">Software Engineer <span class="entry-org">· ING Nederland (Gatekeepers, Mortgages)</span></span>
+                    <span class="entry-date">Sep 2026 – Present</span>
+                </div>
+                <ul>
+                    <li>Engineer in the Gatekeepers team within Mortgages, joining permanently after completing the Tech Class.</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-head">
+                    <span class="entry-title">Engineer, Tech Class <span class="entry-org">· ING Nederland</span></span>
+                    <span class="entry-date">Sep 2025 – Aug 2026</span>
                 </div>
                 <ul>
                     <li>Engineer in ING's Tech Class 2025–2026, rotating through multiple engineering teams during this year.</li>
                     <li><strong>UpgradeHub:</strong> built Java Spring Boot services powering Upgrade Check (public ING tool) and Upgrader (for ING mortgage customers), helping customers improve their home energy labels.</li>
                     <li><strong>InsideBusiness Mobile:</strong> shipped corporate-identity and routing updates in the InsideBusiness app, used by hundreds of corporate clients.</li>
                     <li><strong>AI rotation:</strong> prototyped an AI-driven "Design Enforcer" VS Code plugin that applied generated design rules to improve developer efficiency.</li>
+                    <li><strong>API observability:</strong> explored a framework for automated API dashboarding to monitor API endpoint metrics, in a final two-month rotation.</li>
                 </ul>
             </div>
 
@@ -344,27 +355,6 @@
                 </ul>
             </div>
 
-            <div class="entry">
-                <div class="entry-head">
-                    <span class="entry-title">LIS Metaforum &amp; Flux Student Assistant <span class="entry-org">· EuFlex / TU Eindhoven</span></span>
-                    <span class="entry-date">2020 – 2024</span>
-                </div>
-                <ul>
-                    <li>Resolved technical issues for faculty employees across Mathematics &amp; CS, Electrical Engineering, and Applied Physics.</li>
-                    <li>Streamlined desk workflows to improve overall service quality.</li>
-                </ul>
-            </div>
-
-            <div class="entry">
-                <div class="entry-head">
-                    <span class="entry-title">Teaching Assistant <span class="entry-org">· TU Eindhoven</span></span>
-                    <span class="entry-date">2019 – 2024</span>
-                </div>
-                <ul>
-                    <li>Tutored cohorts of 15–45 students per course in Algorithms &amp; Data Structures, Logic &amp; Set Theory, and Discrete Structures.</li>
-                    <li>Mentored and coached first-year Computer Science students through core coursework.</li>
-                </ul>
-            </div>
         </div>
 
         <!-- SIDEBAR -->
@@ -401,6 +391,18 @@
                 <a href="https://harry.hubble.cafe">harry.hubble.cafe</a></p>
             </div>
             <div class="side-entry">
+                <div class="t">Community Café Web</div>
+                <div class="d">React · Spring Boot · Docker</div>
+                <p>Rebuild of two café websites sharing one staff CMS, replacing the legacy WordPress sites.
+                <a href="https://hubble.cafe">hubble.cafe</a> · <a href="https://meteor.cafe">meteor.cafe</a></p>
+            </div>
+            <div class="side-entry">
+                <div class="t">Community Café Web Generic</div>
+                <div class="d">Nginx · Docker</div>
+                <p>A library of small static sites migrated off legacy hosting, each shipped as its own container.
+                <a href="https://dispuutdons.nl">dispuutdons.nl</a></p>
+            </div>
+            <div class="side-entry">
                 <div class="t">Advent of Code Portfolio</div>
                 <div class="d">Python</div>
                 <p>A visual portfolio of all my Advent of Code solutions, covering every year of the event.
@@ -412,11 +414,6 @@
                 <p>Framework for automatic, repository-wide, language-independent documentation generation using LLMs.
                 <a href="https://github.com/PimVanLeeuwen/llm_documentation_framework">llm_documentation_framework</a></p>
             </div>
-
-            <h2 class="sec-title">Languages</h2>
-            <div class="chips">
-                <span class="chip">Dutch — Native</span><span class="chip">English — C1 (CAE)</span>
-            </div>
         </div>
     </section>
 
@@ -424,6 +421,30 @@
     <section class="page">
         <!-- MAIN -->
         <div class="main-col">
+            <h2 class="sec-title">Experience (continued)</h2>
+
+            <div class="entry">
+                <div class="entry-head">
+                    <span class="entry-title">LIS Metaforum &amp; Flux Student Assistant <span class="entry-org">· EuFlex / TU Eindhoven</span></span>
+                    <span class="entry-date">2020 – 2024</span>
+                </div>
+                <ul>
+                    <li>Resolved technical issues for faculty employees across Mathematics &amp; CS, Electrical Engineering, and Applied Physics.</li>
+                    <li>Streamlined desk workflows to improve overall service quality.</li>
+                </ul>
+            </div>
+
+            <div class="entry">
+                <div class="entry-head">
+                    <span class="entry-title">Teaching Assistant <span class="entry-org">· TU Eindhoven</span></span>
+                    <span class="entry-date">2019 – 2024</span>
+                </div>
+                <ul>
+                    <li>Tutored cohorts of 15–45 students per course in Algorithms &amp; Data Structures, Logic &amp; Set Theory, and Discrete Structures.</li>
+                    <li>Mentored and coached first-year Computer Science students through core coursework.</li>
+                </ul>
+            </div>
+
             <h2 class="sec-title">Education</h2>
 
             <div class="entry">
@@ -516,6 +537,11 @@
                 <span class="chip">Problem Solving</span><span class="chip">Communication</span>
                 <span class="chip">Team Leadership</span><span class="chip">Organization</span>
                 <span class="chip">Mentoring</span><span class="chip">Eager to Learn</span>
+            </div>
+
+            <h2 class="sec-title">Languages</h2>
+            <div class="chips">
+                <span class="chip">Dutch — Native</span><span class="chip">English — C1 (CAE)</span>
             </div>
 
             <h2 class="sec-title">Interests</h2>
